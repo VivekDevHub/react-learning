@@ -31,12 +31,12 @@ const products = [
 const App = () => {
   return (
     <>
-    <div>
-      <h1 style={{textAlign:"center",padding:"20px"}}>Our Products</h1>
-    </div>
-      <div style={{display:"flex"}}>
+      <div>
+        <h1 style={{ textAlign: "center", padding: "20px" }}>Our Products</h1>
+      </div>
+      <div style={{ display: "flex" }}>
         {products.map((product) => {
-         return <ProductCard key={product.id} product={product} />;
+          return <ProductCard key={product.id} product={product} />;
         })}
       </div>
     </>
