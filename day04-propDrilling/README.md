@@ -1,12 +1,233 @@
-# React + Vite
+# Props
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Definition
 
-Currently, two official plugins are available:
+**Props** are used to **pass data from a parent component to a child component**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+They make components **dynamic and reusable**.
 
-## Expanding the ESLint configuration
+Props are **read-only**.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Example
+
+Parent Component:
+
+```
+functionApp() {
+return<Username="Anubhav"age={24}/>;
+}
+```
+
+Child Component:
+
+```
+functionUser(props) {
+return (
+<h1>
+      {props.name} is {props.age} years old
+</h1>
+  );
+}
+```
+
+Output:
+
+```
+Anubhav is 24 years old
+```
+
+---
+
+## Destructuring Props
+
+Better way to use props.
+
+```
+functionUser({ name, age }) {
+return (
+<h1>
+      {name} is {age} years old
+</h1>
+  );
+}
+```
+
+---
+
+## Props Characteristics
+
+- Immutable (cannot be modified)
+- Passed from parent to child
+- Used to make components reusable
+- Supports any data type
+
+Examples of props:
+
+```
+String
+Number
+Boolean
+Array
+Object
+Function
+```
+
+Example:
+
+```
+<Buttoncolor="red"size="large"/>
+```
+
+---
+
+# 3. Props Drilling
+
+## Definition
+
+**Props Drilling** is the process of passing props **through multiple intermediate components** to reach a deeply nested child component.
+
+This happens when the **data is needed by a deeply nested component** but must pass through components that **do not use it**.
+
+---
+
+## Example
+
+Component Structure:
+
+```
+App
+ └── Parent
+      └── Child
+           └── GrandChild
+```
+
+App Component:
+
+```
+functionApp() {
+constname="Anubhav";
+return<Parentname={name}/>;
+}
+```
+
+Parent Component:
+
+```
+functionParent({ name }) {
+return<Childname={name}/>;
+}
+```
+
+Child Component:
+
+```
+functionChild({ name }) {
+return<GrandChildname={name}/>;
+}
+```
+
+GrandChild Component:
+
+```
+functionGrandChild({ name }) {
+return<h1>{name}</h1>;
+}
+```
+
+Here the `name` prop is passed through **multiple layers**.
+
+---
+
+## Problems with Props Drilling
+
+1. Code becomes messy
+2. Difficult to maintain
+3. Hard to track data flow
+4. Unnecessary prop passing
+
+---
+
+---
+
+# 4. Static CSS File Integration in React
+
+## Definition
+
+Static CSS integration means **linking a normal CSS file with React components** to style them.
+
+React allows **importing CSS files directly into components**.
+
+---
+
+## Steps to Use CSS File
+
+### Step 1: Create CSS File
+
+Example:
+
+```
+style.css
+```
+
+```
+.heading {
+  color:red;
+  font-size:30px;
+}
+```
+
+---
+
+### Step 2: Import CSS File
+
+```
+import"./style.css";
+```
+
+---
+
+### Step 3: Use Class in JSX
+
+```
+functionApp() {
+return<h1className="heading">Hello React</h1>;
+}
+```
+
+Note:
+
+React uses **className instead of class** because `class` is a reserved JavaScript keyword.
+
+---
+
+## Folder Structure Example
+
+```
+src
+ ├── components
+ │      ├── Navbar.jsx
+ │      └── Footer.jsx
+ ├── styles
+ │      └── style.css
+ └── App.jsx
+```
+
+---
+
+## Ways to Style React
+
+1. **Static CSS file**
+2. **Inline Styling**
+3. **CSS Modules**
+4. **Styled Components**
+5. **Tailwind CSS**
+
+Example Inline Styling:
+
+```
+<h1style={{ color:"blue", fontSize:"30px" }}>
+  Hello React
+</h1>
+```
