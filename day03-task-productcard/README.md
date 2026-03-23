@@ -1,16 +1,99 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Components in React
 
-Currently, two official plugins are available:
+## Definition
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A **Component** in React is a **reusable, independent piece of UI**. It allows developers to divide the UI into smaller parts that can be reused and maintained easily.
 
-## React Compiler
+React applications are built using **multiple components that combine to form a complete UI**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Example:
 
-## Expanding the ESLint configuration
+- Navbar
+- Sidebar
+- Footer
+- Product Card
+- Button
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Each of these can be a **separate component**.
+
+---
+
+## Types of Components
+
+### 1. Functional Components
+
+A **JavaScript function** that returns JSX.
+
+Example:
+
+```
+functionGreeting() {
+return<h1>Hello User</h1>;
+}
+```
+
+Arrow Function version:
+
+```
+constGreeting= () => {
+return<h1>Hello User</h1>;
+};
+```
+
+Characteristics:
+
+- Simple
+- Lightweight
+- Mostly used in modern React
+- Can use **Hooks (useState, useEffect)**
+
+---
+
+### 2. Class Components
+
+Older way of creating components using ES6 classes.
+
+Example:
+
+```
+importReact, {Component }from"react";
+
+classGreetingextendsComponent {
+  render() {
+return<h1>Hello User</h1>;
+  }
+}
+```
+
+Characteristics:
+
+- Uses lifecycle methods
+- More complex
+- Mostly replaced by functional components with hooks
+
+---
+
+## Key Features of Components
+
+1. **Reusability**
+2. **Separation of Concerns**
+3. **Maintainability**
+4. **Better Code Organization**
+
+---
+
+## Example Structure
+
+```
+App
+ ├── Navbar
+ ├── HeroSection
+ ├── ProductList
+ │     └── ProductCard
+ └── Footer
+```
+
+Each part is a **separate component**.
+
+---
