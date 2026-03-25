@@ -1,63 +1,65 @@
 import React, { useState } from "react";
 import axios from "axios";
-const App = () => {
+
+const API = "http://localhost:5000";
+
+export default function App() {
   const [url, setUrl] = useState("");
   const [video, setVideo] = useState(null);
   const [type, setType] = useState("audio");
   const [quality, setQuality] = useState("128");
-  const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
 
-  const API = "http://localhost:5000";
-
-  // 🎧 Fetch Video Info
   const fetchInfo = async () => {
-    if (!url) return alert("Please enter URL");
+    if (!url) return alert("Enter URL");
 
     try {
       setLoading(true);
-      const res = await axios.get(`${API}/info?url=${url}`);
+
+      const res = await axios.get(
+        `${API}/info?url=${encodeURIComponent(url)}`
+      );
+
       setVideo(res.data);
-    } catch {
-      alert("Invalid YouTube URL");
+    } catch (err) {
+      console.log(err);
+      alert("Failed to fetch video info");
     } finally {
       setLoading(false);
     }
   };
 
-  // 🎬 Download Handler
-  const handleDownload = async () => {
-    if (!url) return alert("Enter URL first");
-
+  const download = async () => {
     try {
-      setProgress(0);
       setLoading(true);
+      setProgress(0);
 
       const endpoint =
         type === "audio"
-          ? `/audio?url=${url}&quality=${quality}`
-          : `/video?url=${url}`;
+          ? `/audio?url=${encodeURIComponent(url)}&quality=${quality}`
+          : `/video?url=${encodeURIComponent(url)}`;
 
-      const response = await axios({
+      const res = await axios({
         url: `${API}${endpoint}`,
         method: "GET",
         responseType: "blob",
         onDownloadProgress: (e) => {
           if (e.total) {
-            const percent = Math.round((e.loaded * 100) / e.total);
-            setProgress(percent);
+            setProgress(Math.round((e.loaded * 100) / e.total));
           }
         },
       });
 
-      const blob = new Blob([response.data]);
+      const blob = new Blob([res.data]);
       const link = document.createElement("a");
 
       link.href = window.URL.createObjectURL(blob);
       link.download = type === "audio" ? "audio.mp3" : "video.mp4";
       link.click();
 
-    } catch {
+    } catch (err) {
+      console.log(err);
       alert("Download failed");
     } finally {
       setLoading(false);
@@ -65,71 +67,51 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <div className="card">
+    <div className="container">
+      <h1>YT Downloader PRO</h1>
 
-        <h1>🎵 YT Converter PRO</h1>
-
-        {/* 🔗 Input */}
+      <div className="input-box">
         <input
           placeholder="Paste YouTube URL..."
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
-
-        {/* 🔍 Fetch Button */}
-        <button onClick={fetchInfo} disabled={loading}>
-          {loading ? "Fetching..." : "Fetch Info"}
+        <button onClick={fetchInfo}>
+          {loading ? "Loading..." : "Fetch"}
         </button>
-
-        {/* 🎥 Video Preview */}
-        {video && (
-          <div className="video">
-            <img src={video.thumbnail} alt="thumbnail" />
-            <p>{video.title}</p>
-          </div>
-        )}
-
-        {/* 🎧 Type Toggle */}
-        <div className="row">
-          <button
-            className={type === "audio" ? "active" : ""}
-            onClick={() => setType("audio")}
-          >
-            🎵 Audio
-          </button>
-
-          <button
-            className={type === "video" ? "active" : ""}
-            onClick={() => setType("video")}
-          >
-            🎬 Video
-          </button>
-        </div>
-
-        {/* 🎵 Quality Select */}
-        {type === "audio" && (
-          <select value={quality} onChange={(e) => setQuality(e.target.value)}>
-            <option value="128">128 kbps</option>
-            <option value="320">320 kbps</option>
-          </select>
-        )}
-
-        {/* ⬇️ Download */}
-        <button onClick={handleDownload} disabled={loading}>
-          {loading ? "Processing..." : "Download"}
-        </button>
-
-        {/* 📊 Progress */}
-        {progress > 0 && (
-          <div className="progress">
-            <div style={{ width: `${progress}%` }}></div>
-          </div>
-        )}
-
       </div>
+
+      {video && (
+        <div className="card">
+          <img src={video.thumbnail} alt="" />
+          <p>{video.title}</p>
+
+          <div className="row">
+            <button onClick={() => setType("audio")}>🎵 Audio</button>
+            <button onClick={() => setType("video")}>🎬 Video</button>
+          </div>
+
+          {type === "audio" && (
+            <select
+              value={quality}
+              onChange={(e) => setQuality(e.target.value)}
+            >
+              <option value="128">128 kbps</option>
+              <option value="320">320 kbps</option>
+            </select>
+          )}
+
+          <button onClick={download}>
+            {loading ? "Downloading..." : "⬇ Download"}
+          </button>
+
+          {progress > 0 && (
+            <div className="progress">
+              <div style={{ width: `${progress}%` }}></div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
-};
-
-export default App;
+}
