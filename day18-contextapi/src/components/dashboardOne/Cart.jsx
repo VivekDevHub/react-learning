@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
 
-const Cart = () => {
+const Cart = ({ setShowCart, cartItems }) => {
   return (
-    <div>Cart</div>
-  )
-}
+    <div>
+      <h1>Cart screen</h1>
+      <button onClick={() => setShowCart(false)}>Close</button>
 
-export default Cart
+      <div>
+        {cartItems.map(elem => <h1>{elem.title}</h1>)}
+      </div>
+    </div>
+  );
+};
+
+export default Cart;
