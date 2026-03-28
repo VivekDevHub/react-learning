@@ -1,33 +1,37 @@
-import axios, { all } from "axios";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import UserList from "./UserList";
 
-const DashboardTwo = () => {
-  const [allUsers, setallUsers] = useState([]);
+const DashboardTwo = ({ getClickedProduct }) => {
+  console.log("clicked product->", getClickedProduct);
+  const [allUsers, setAllUsers] = useState([]);
 
   let fetchUsers = async () => {
     let res = await axios.get("https://fakestoreapi.com/users");
-    setallUsers(res?.data);
+    // console.log(res)
+    setAllUsers(res.data);
   };
+
   useEffect(() => {
     fetchUsers();
   }, []);
 
   let handleUserDelete = (user_id) => {
-    console.log(user_id);
     let filterUsers = allUsers.filter((elem) => elem.id !== user_id);
-    setallUsers(filterUsers);
+    setAllUsers(filterUsers);
   };
+
   return (
     <div>
       <h1>Users Home</h1>
+
       <div>
         {allUsers.map((elem) => {
           return (
             <UserList
               key={elem.id}
-              user={elem}
               handleUserDelete={handleUserDelete}
+              user={elem}
             />
           );
         })}

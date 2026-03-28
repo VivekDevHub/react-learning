@@ -1,36 +1,37 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductList from "./ProductList";
 
-const DashboardOne = () => {
-  const [allProduct, setAllProduct] = useState([]);
+const DashboardOne = ({ setCartItems, setGetClickedProduct }) => {
+  const [allProducts, setAllProducts] = useState([]);
 
-  let fetchAllProduct = async () => {
+  let fetchAllProducts = async () => {
     let res = await axios.get("https://fakestoreapi.com/products");
-    setAllProduct(res?.data);
+    // console.log(res);
+    setAllProducts(res.data);
   };
-  
+
   useEffect(() => {
-    fetchAllProduct();
+    fetchAllProducts();
   }, []);
 
-  let handleProductDelete = (prod_id) => {
-    console.log(prod_id);
-    let filterProducts = allProduct.filter((elem) => elem.id !== prod_id);
-    
-    setAllProduct(filterProducts);
+  let handleProductDelete = (product_id) => {
+    let filterProducts = allProducts.filter((elem) => elem.id !== product_id);
+    setAllProducts(filterProducts);
   };
 
   return (
     <div>
       <h1>Product Home</h1>
       <div>
-        {allProduct.map((elem) => {
+        {allProducts.map((elem) => {
           return (
             <ProductList
+              setGetClickedProduct={setGetClickedProduct}
               key={elem.id}
-              product={elem}
               handleProductDelete={handleProductDelete}
+              product={elem}
+              setCartItems={setCartItems}
             />
           );
         })}
