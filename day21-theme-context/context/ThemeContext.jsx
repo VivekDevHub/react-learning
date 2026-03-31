@@ -7,10 +7,9 @@ export let ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("dark");
   const [renderPages, setRenderPages] = useState("home");
 
-
   return (
     // provider
-    <Theme.Provider value={{ theme, setTheme, renderPages, setRenderPages, Theme }}>
+    <Theme.Provider value={{ theme, setTheme, renderPages, setRenderPages }}>
       {children}
     </Theme.Provider>
   );

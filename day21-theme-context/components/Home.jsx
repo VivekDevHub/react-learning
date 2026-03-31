@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Theme } from "../context/ThemeContext";
 
 const Home = () => {
+    const { theme } = useContext(Theme);
+  
   return (
-    <div className="">
-      <h1 className="text-6xl">This is home</h1>
+    <div className={theme === "dark" ? "text-white" : "text-black"}>
+      <h1 className="text-6xl">This is Home</h1>
     </div>
   );
 };

@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import About from "../components/About";
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
 import Home from "../components/Home";
 import Contact from "../components/Contact";
 import { Theme } from "../context/ThemeContext";
@@ -8,18 +8,21 @@ import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
 
 const App = () => {
-  let { theme, renderPages } = useContext(Theme);
+  const { theme } = useContext(Theme);
 
   return (
     <div
-      className={`h-screen ${
-        theme === "dark" ? "bg-gray-800" : "bg-white"
-      } flex flex-col gap-6`}
+      className={`min-h-screen transition-all duration-500 ${
+        theme === "dark"
+          ? "bg-gradient-to-br from-gray-900 via-black to-gray-800"
+          : "bg-gradient-to-br from-blue-50 via-white to-purple-100"
+      }`}
     >
       <Navbar />
-      <div className=" px-[100px]">
+
+      <div className="px-[100px] py-10 flex justify-center">
         <Routes>
-          <Route path="/" element={<ProductCard /> } />
+          <Route path="/" element={<ProductCard />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
