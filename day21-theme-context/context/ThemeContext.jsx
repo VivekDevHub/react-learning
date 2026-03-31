@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 
+//consumer
 export let Theme = createContext();
 
 export let ThemeProvider = ({ children }) => {
@@ -8,6 +9,7 @@ export let ThemeProvider = ({ children }) => {
 
 
   return (
+    // provider
     <Theme.Provider value={{ theme, setTheme, renderPages, setRenderPages, Theme }}>
       {children}
     </Theme.Provider>
