@@ -1,12 +1,15 @@
 import axios from "axios";
 
-export let getAllProducts = async () => {
+ const getAllProducts = async () => {
   try {
     let res = await axios.get("https://dummyjson.com/products");
     console.log("api hitted");
-
+    console.log(res.data.products);
+    
     return res.data.products;
   } catch (error) {
-    console.log("error in Products api");
+    console.error("error in Products api", error);
+    return []; 
   }
 };
+export {getAllProducts}

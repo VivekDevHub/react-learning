@@ -1,16 +1,17 @@
 import React from "react";
-
-import { RouterProvider, createBrowserRouter } from "react-router";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+// import { RouterProvider, createBrowserRouter } from "react-router";
+import ProtectedDashboard from "./ProtectedDashboard";
+import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
-import MainLayout from "../layouts/MainLayout";
-import AuthLayout from "../layouts/AuthLayout";
+import AuthProtected from "./AuthProtected";
+import AuthLayout from "../layout/AuthLayout";
 import Login from "../components/Login";
 import Register from "../components/Register";
-import ProtectedDashboard from "./ProtectedDashboard";
-import AuthProtected from "./AuthProtected";
 import { getAllProducts } from "../api/productApis";
+
 
 const AppRoutes = () => {
   let gigi = createBrowserRouter([
