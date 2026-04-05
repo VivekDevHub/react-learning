@@ -72,6 +72,8 @@ The current codebase already includes:
 ---
 
 ## 📁 Project Structure
+
+```
 study-session-planner/
 │-- public/
 │-- src/
