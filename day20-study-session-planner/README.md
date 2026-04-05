@@ -87,8 +87,7 @@ study-session-planner/
 │-- index.html
 │-- package.json
 └-- README.md
-
-
+```
 ---
 
 ## ⚙️ Getting Started
@@ -102,13 +101,13 @@ study-session-planner/
 
 ```bash
 npm install
+```
 
 ### ▶️ Run Development Server
 
 ```bash
 npm run dev
-
-Open the local URL shown in the terminal after Vite starts.
+```
 
 ### 📜 Available Scripts
 npm run dev      # Starts development server
