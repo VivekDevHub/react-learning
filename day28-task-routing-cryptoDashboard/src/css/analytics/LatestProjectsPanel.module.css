@@ -1,0 +1,175 @@
+.table {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.7fr) minmax(140px, 1.25fr) minmax(140px, 1.15fr) minmax(92px, 0.72fr) minmax(62px, 70px);
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+
+.headerRow {
+  color: #4f5965;
+  font-size: 13px;
+  font-weight: 700;
+  padding-bottom: 6px;
+}
+
+.projectCell {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.row > div,
+.row > span {
+  min-width: 0;
+}
+
+.row > :nth-child(2) {
+  min-width: 0;
+}
+
+.logoWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background: #f4f7fb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+}
+
+.primaryText {
+  color: #505964;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.secondaryText {
+  color: #8993a0;
+  font-size: 12px;
+  margin-top: 2px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.statusCell {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.statusValue {
+  color: #7a8390;
+  font-size: 14px;
+}
+
+.progressTrack {
+  display: block;
+  width: min(100%, 74px);
+  height: 6px;
+  border-radius: 999px;
+  background: #eef2f8;
+  overflow: hidden;
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.actionCell {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.viewButton {
+  width: 100%;
+  border: 0;
+  border-radius: 4px;
+  padding: 9px 10px;
+  background: #f2f5fa;
+  color: #555f6d;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@media (max-width: 1200px) {
+  .row {
+    grid-template-columns: minmax(220px, 1.85fr) minmax(150px, 1.3fr) minmax(90px, 0.72fr) minmax(64px, 74px);
+    gap: 16px;
+  }
+
+  .row > :nth-child(2) {
+    display: none;
+  }
+}
+
+@media (max-width: 990px) {
+  .row {
+    grid-template-columns: minmax(0, 1.6fr) minmax(92px, 120px);
+    gap: 18px;
+    padding: 10px 0;
+    align-items: center;
+  }
+
+  .row > :nth-child(3),
+  .row > :nth-child(5) {
+    display: none;
+  }
+
+  .headerRow > :nth-child(2),
+  .headerRow > :nth-child(3),
+  .headerRow > :nth-child(5) {
+    display: none;
+  }
+
+  .statusCell {
+    justify-items: end;
+  }
+
+  .progressTrack {
+    width: min(100%, 120px);
+  }
+
+  .actionCell {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerRow {
+    display: none;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px 0;
+    border-top: 1px solid #edf1f6;
+  }
+
+  .row:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .row > :nth-child(4) {
+    justify-items: start;
+  }
+}

@@ -1,0 +1,70 @@
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin: 0;
+  color: #0f1728;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.secondaryButton,
+.primaryButton {
+  border: 1px solid #e9edf4;
+  padding: 9px 16px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.secondaryButton {
+  background: #ffffff;
+  color: #304155;
+}
+
+.primaryButton {
+  background: #4c86e8;
+  color: #ffffff;
+  border-color: #4c86e8;
+}
+
+.secondaryButton:hover,
+.primaryButton:hover {
+  filter: brightness(0.98);
+}
+
+@media (max-width: 720px) {
+  .head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .secondaryButton,
+  .primaryButton {
+    flex: 1;
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+}

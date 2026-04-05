@@ -1,0 +1,144 @@
+.table {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.45fr) minmax(150px, 1.25fr) minmax(160px, 1.3fr) minmax(56px, 70px) minmax(96px, 112px);
+  gap: 14px;
+  align-items: center;
+  min-width: 0;
+}
+
+.headerRow {
+  color: #4f5965;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.row > div,
+.row > span {
+  min-width: 0;
+}
+
+.itemCell {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.logoWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background: #f4f7fb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+}
+
+.primaryText {
+  color: #505964;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.secondaryText {
+  color: #8993a0;
+  font-size: 12px;
+  margin-top: 2px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.ordersCell {
+  color: #556172;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.progress {
+  background: #d8f5ea;
+  color: #15b67e;
+}
+
+.paused {
+  background: #fff1d9;
+  color: #ffb529;
+}
+
+.cancelled {
+  background: #fde1e6;
+  color: #ef4e61;
+}
+
+@media (max-width: 1480px) {
+  .row {
+    grid-template-columns: minmax(190px, 1.6fr) minmax(180px, 1.35fr) minmax(56px, 70px) minmax(96px, 112px);
+    gap: 18px;
+  }
+
+  .row > :nth-child(2) {
+    display: none;
+  }
+
+  .headerRow > :nth-child(2) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerRow {
+    grid-template-columns: minmax(0, 1fr) minmax(96px, 120px);
+  }
+
+  .row {
+    grid-template-columns: minmax(0, 1fr) minmax(96px, 120px);
+    gap: 16px;
+    padding: 12px 0;
+    border-top: 1px solid #edf1f6;
+    align-items: center;
+  }
+
+  .row:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .row > :nth-child(2),
+  .row > :nth-child(3),
+  .row > :nth-child(4) {
+    display: none;
+  }
+
+  .headerRow > :nth-child(2),
+  .headerRow > :nth-child(3),
+  .headerRow > :nth-child(4) {
+    display: none;
+  }
+
+  .row > :last-child {
+    justify-self: start;
+  }
+}

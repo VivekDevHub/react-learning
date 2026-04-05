@@ -1,0 +1,104 @@
+.graphCard {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 16px 18px 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+  min-height: 335px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  color: #8d97a3;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.monthButton {
+  border: 1px solid #edf1f6;
+  background: #f4f7fb;
+  color: #667280;
+  border-radius: 3px;
+  padding: 7px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f4f7fb;
+  border: 1px solid #edf1f6;
+  border-radius: 3px;
+  padding: 0 12px;
+  color: #98a2ae;
+  min-width: 0;
+  width: 250px;
+  max-width: 100%;
+}
+
+.search input {
+  border: 0;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  min-width: 0;
+  height: 34px;
+  color: #516071;
+  font-size: 12px;
+}
+
+.search input::placeholder {
+  color: #98a2ae;
+}
+
+.chartWrap {
+  position: relative;
+  flex: 1;
+  min-height: 250px;
+  min-width: 0;
+}
+
+@media (max-width: 720px) {
+  .topBar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .filters {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .monthButton,
+  .search {
+    width: 100%;
+  }
+}

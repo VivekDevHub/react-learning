@@ -1,0 +1,74 @@
+.chartWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.ring {
+  width: 140px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #ffffff 52%, transparent 53%),
+    conic-gradient(#3f7de0 0 32%, #ffb529 32% 67%, #e6384d 67% 79%, #ebeff5 79% 100%);
+}
+
+.list {
+  display: grid;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-top: 1px solid #e6ebf2;
+}
+
+.row:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.labelWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.name {
+  color: #5c6674;
+  font-size: 14px;
+}
+
+.value {
+  color: #5c6674;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.badge {
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.positive {
+  background: #d7f5e9;
+  color: #15b67e;
+}
+
+.negative {
+  background: #fde1e6;
+  color: #ef4e61;
+}

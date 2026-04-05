@@ -1,0 +1,73 @@
+.layout {
+  display: grid;
+  gap: 24px;
+}
+
+.topGrid {
+  display: grid;
+  grid-template-areas: "calendar realtime browser";
+  grid-template-columns: minmax(280px, 0.9fr) minmax(420px, 1.85fr) minmax(280px, 0.9fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.calendar {
+  grid-area: calendar;
+}
+
+.realtime {
+  grid-area: realtime;
+}
+
+.browser {
+  grid-area: browser;
+}
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.6fr) minmax(250px, 0.78fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.projects,
+.sales {
+  min-width: 0;
+}
+
+@media (max-width: 1480px) {
+  .topGrid {
+    grid-template-areas:
+      "calendar browser"
+      "realtime realtime";
+    grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
+  }
+
+  .bottomGrid {
+    grid-template-columns: minmax(0, 1.95fr) minmax(240px, 0.78fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .bottomGrid {
+    grid-template-columns: minmax(0, 1.85fr) minmax(260px, 0.82fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 990px) {
+  .bottomGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .topGrid {
+    grid-template-areas:
+      "calendar"
+      "browser"
+      "realtime";
+    grid-template-columns: 1fr;
+  }
+}

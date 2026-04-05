@@ -1,0 +1,40 @@
+.filterButton {
+  border: 1px solid #edf1f6;
+  background: #f4f7fb;
+  color: #667280;
+  border-radius: 3px;
+  padding: 7px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f4f7fb;
+  border: 1px solid #edf1f6;
+  border-radius: 3px;
+  padding: 0 12px;
+  color: #98a2ae;
+  width: 100px;
+}
+
+.search input {
+  border: 0;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  min-width: 0;
+  height: 34px;
+  color: #516071;
+  font-size: 12px;
+}
+
+.chartWrap {
+  position: relative;
+  min-height: 340px;
+}

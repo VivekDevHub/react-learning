@@ -1,0 +1,10 @@
+.page {
+  background: linear-gradient(180deg, #f4f7fc 0%, #eef3f9 100%);
+  padding: 28px 16px 40px;
+}
+
+@media (min-width: 900px) {
+  .page {
+    padding: 28px 18px 40px;
+  }
+}

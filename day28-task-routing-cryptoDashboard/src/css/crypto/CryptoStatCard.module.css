@@ -1,0 +1,92 @@
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 18px 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.title {
+  color: #96a0ad;
+  font-weight: 700;
+}
+
+.iconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.blue {
+  background: #dce9ff;
+  color: #3f7de0;
+}
+
+.orange {
+  background: #ff9814;
+}
+
+.indigo {
+  background: #3e67ad;
+}
+
+.violet {
+  background: #657eea;
+}
+
+.amber {
+  background: #ff6d00;
+}
+
+.valueRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.value {
+  color: #111827;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.meta {
+  color: #7b8794;
+  font-size: 16px;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  border-radius: 4px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.positive {
+  background: #d8f5ea;
+  color: #15b67e;
+}
+
+.caption {
+  color: #7d8795;
+}

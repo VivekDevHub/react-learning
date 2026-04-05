@@ -1,0 +1,21 @@
+.chartWrap {
+  position: relative;
+  min-height: 400px;
+}
+
+.floatingButton {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 999px;
+  background: #3f7de0;
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(63, 125, 224, 0.28);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

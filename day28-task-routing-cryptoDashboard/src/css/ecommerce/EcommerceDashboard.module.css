@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.analyticsRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.95fr) minmax(320px, 0.95fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.bottomRow {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.75fr) minmax(0, 2.35fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+@media (max-width: 1180px) {
+  .analyticsRow,
+  .bottomRow {
+    grid-template-columns: 1fr;
+  }
+}

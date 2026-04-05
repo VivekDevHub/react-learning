@@ -1,0 +1,82 @@
+.monthBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.navButton {
+  border: 0;
+  background: transparent;
+  color: #1a202c;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.monthValue {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.dayRow,
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.dayRow {
+  margin-bottom: 8px;
+}
+
+.dayLabel {
+  text-align: center;
+  color: #7b7b7b;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 8px 0;
+}
+
+.grid {
+  gap: 4px 2px;
+}
+
+.dateButton {
+  position: relative;
+  border: 0;
+  background: transparent;
+  color: #4b5563;
+  height: 40px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.active {
+  background: #3f7de0;
+  color: #ffffff;
+}
+
+.muted {
+  color: #c4c8cf;
+}
+
+.marker {
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #3f7de0;
+  transform: translateX(-50%);
+}

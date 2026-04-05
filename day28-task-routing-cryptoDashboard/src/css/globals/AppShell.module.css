@@ -1,0 +1,25 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  background: #eff3f8;
+  overflow: hidden;
+}
+
+.main {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: padding-left 0.22s ease;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 961px) {
+  :global(body.main-sidebar-open) .main {
+    padding-left: 264px;
+  }
+}

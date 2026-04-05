@@ -1,0 +1,57 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.topRow {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(320px, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.bottomRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(300px, 0.74fr);
+  grid-template-areas: "sell buy operations";
+  gap: 24px;
+  align-items: stretch;
+}
+
+.sellOrders {
+  grid-area: sell;
+}
+
+.buyOrders {
+  grid-area: buy;
+}
+
+.operations {
+  grid-area: operations;
+}
+
+@media (max-width: 1360px) {
+  .bottomRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "sell buy"
+      "operations operations";
+  }
+}
+
+@media (max-width: 1280px) {
+  .topRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .bottomRow {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "sell"
+      "buy"
+      "operations";
+  }
+}

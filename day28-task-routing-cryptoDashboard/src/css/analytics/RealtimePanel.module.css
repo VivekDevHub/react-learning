@@ -1,0 +1,37 @@
+.mapShell {
+  position: relative;
+  min-height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8fbff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px 0;
+}
+
+.mapImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  user-select: none;
+}
+
+@media (max-width: 1480px) {
+  .mapShell {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .mapShell {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mapShell {
+    min-height: 260px;
+  }
+}

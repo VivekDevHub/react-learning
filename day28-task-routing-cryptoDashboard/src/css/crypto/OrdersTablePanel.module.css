@@ -1,0 +1,29 @@
+.viewAll {
+  border: 0;
+  background: #f2f5fa;
+  color: #556172;
+  border-radius: 3px;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+
+.table {
+  display: grid;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-items: center;
+  padding: 6px 0;
+  border-top: 1px solid #e8edf4;
+  color: #556172;
+}
+
+.headerRow {
+  border-top: 0;
+  color: #4f5965;
+  font-size: 13px;
+  font-weight: 700;
+}

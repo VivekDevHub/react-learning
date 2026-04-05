@@ -1,0 +1,259 @@
+.navbar {
+  height: 66px;
+  padding: 0 22px;
+  background: #ffffff;
+  border-bottom: 1px solid #e9edf5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.left {
+  flex: 1;
+}
+
+.menuButton,
+.iconButton,
+.avatarButton,
+.flagButton,
+.linkButton {
+  border: 0;
+  background: transparent;
+  color: #6a7482;
+  cursor: pointer;
+}
+
+.menuButton,
+.iconButton,
+.flagButton,
+.avatarButton {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 8px;
+  font-size: 22px;
+}
+
+.menuButton {
+  color: #6a7482;
+}
+
+.menuButton:hover,
+.iconButton:hover,
+.flagButton:hover,
+.avatarButton:hover {
+  background: #f2f5fa;
+  color: #2b3542;
+}
+
+.search {
+  max-width: 275px;
+  width: 100%;
+  height: 36px;
+  padding: 0 14px;
+  background: #f2f5fa;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #7e8794;
+}
+
+.search input {
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #566273;
+  font-size: 12px;
+  width: 100%;
+}
+
+.search input::placeholder {
+  color: #7e8794;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+
+.linkButton {
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 10px;
+  border-radius: 4px;
+}
+
+.linkButton:hover,
+.linkButtonActive {
+  color: #111827;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 164px;
+  padding: 10px 0;
+  background: #ffffff;
+  border: 1px solid #d8e1ee;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  z-index: 25;
+}
+
+.dropdownItem,
+.megaItem {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: #4b5563;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdownItem {
+  min-height: 32px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.dropdownItem i {
+  font-size: 18px;
+  color: #4b5563;
+}
+
+.dropdownItem:hover,
+.megaItem:hover {
+  background: #f8fafc;
+  color: #111827;
+}
+
+.megaMenu {
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(170px, 1fr));
+  gap: 30px;
+  width: min(760px, calc(100vw - 36px));
+  padding: 18px 22px;
+}
+
+.megaColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.megaTitle {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.megaList {
+  display: flex;
+  flex-direction: column;
+}
+
+.megaItem {
+  min-height: 32px;
+  padding: 0;
+  font-size: 13px;
+}
+
+.badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #4b84e8;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.avatarButton img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.flagButton span {
+  font-size: 20px;
+}
+
+.flagIcon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid #e5e7eb;
+  background:
+    linear-gradient(180deg, transparent 0 42%, #ffffff 42% 58%, transparent 58% 100%),
+    linear-gradient(180deg, #c83c50 0 14%, #ffffff 14% 28%, #c83c50 28% 42%, #ffffff 42% 56%, #c83c50 56% 70%, #ffffff 70% 84%, #c83c50 84% 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.flagIcon::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 42%;
+  height: 52%;
+  background: #3757b5;
+}
+
+@media (max-width: 960px) {
+  .links {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .navbar {
+    padding: 0 14px;
+  }
+
+  .search {
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 560px) {
+  .search {
+    display: none;
+  }
+}
