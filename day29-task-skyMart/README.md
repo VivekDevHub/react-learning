@@ -12,25 +12,27 @@ SkyMart is a modern web application that demonstrates a clean UI, responsive des
 
 ## ✨ Features
 
-- Clean and modern UI  
-- Fully responsive design  
-- Fast performance with optimized components  
-- Dynamic data rendering  
-- User-friendly navigation  
-- Theme support (if implemented)  
-- Component-based architecture  
+- Clean and modern UI
+- Fully responsive design
+- Fast performance with optimized components
+- Dynamic data rendering
+- User-friendly navigation
+- Theme support (if implemented)
+- Component-based architecture
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- React.js  
-- JavaScript (ES6+)  
-- HTML5 & CSS3  
+
+- React.js
+- JavaScript (ES6+)
+- HTML5 & CSS3
 
 ### Deployment
-- Vercel  
+
+- Vercel
 
 ---
 
@@ -43,9 +45,10 @@ SkyMart is a modern web application that demonstrates a clean UI, responsive des
 ## 📌 Project Highlights
 
 This project focuses on:
-- Building scalable UI components  
-- Improving user experience with responsive layouts  
-- Writing clean and maintainable code  
+
+- Building scalable UI components
+- Improving user experience with responsive layouts
+- Writing clean and maintainable code
 
 ---
 
