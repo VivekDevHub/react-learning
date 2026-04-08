@@ -1,12 +1,92 @@
-# React + Vite
+# 📘 React Routing Practice Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📅 Due Date
+**2 April 2026 (2:00 AM Night)**
 
-Currently, two official plugins are available:
+## 👨‍🏫 Assigned By
+**Devendra Bhaiya**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🏫 Batch
+**Kodex Batch**
 
-## Expanding the ESLint configuration
+## 📊 Status
+- **Total Marks:** 30 pts  
+- **Earned:** 0 pts  
+- **Status:** Pending  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🎯 Objective
+
+Recreate the dashboard layout using **React** with proper implementation of **React Router**.
+
+🔗 Reference Dashboard:  
+https://demo.adminkit.io/dashboard-crypto
+
+---
+
+## 📌 Instructions
+
+- Replicate the structure and routing behavior of the given dashboard  
+- Focus on clean and scalable routing logic  
+- Maintain proper folder structure and component organization  
+- Ensure smooth navigation between pages using React Router  
+
+---
+
+## ✅ Expected Outcome
+
+By completing this task, you will:
+
+- Strengthen your understanding of React Routing concepts  
+- Learn to build multi-page dashboard applications  
+- Improve code structuring and component organization skills  
+
+---
+
+## 🚀 Tech Stack
+
+- React.js  
+- React Router  
+- JavaScript (ES6+)  
+- HTML5 & CSS3  
+
+---
+
+## 📂 Suggested Folder Structure
+```
+src/
+│
+├── components/
+├── pages/
+├── layouts/
+├── router/
+│ └── AppRouter.jsx
+├── App.jsx
+└── main.jsx
+```
+
+
+---
+
+## 🔥 Key Focus Areas
+
+- Nested Routing  
+- Layout-based routing  
+- Dynamic routing (if needed)  
+- Reusable components  
+- Clean UI structure  
+
+---
+
+## 📎 Submission Note
+
+Submit your project before the deadline to avoid penalty.
+
+---
+
+## 💡 Tip
+
+Try to break the UI into small reusable components and use layouts for better routing structure.
+
+---
