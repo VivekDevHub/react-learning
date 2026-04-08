@@ -1,99 +1,130 @@
-
-# Components in React
-
-## Definition
-
-A **Component** in React is a **reusable, independent piece of UI**. It allows developers to divide the UI into smaller parts that can be reused and maintained easily.
-
-React applications are built using **multiple components that combine to form a complete UI**.
-
-Example:
-
-- Navbar
-- Sidebar
-- Footer
-- Product Card
-- Button
-
-Each of these can be a **separate component**.
+# 🛍️ React Product Card Page 
 
 ---
 
-## Types of Components
+## 🎯 Objective
 
-### 1. Functional Components
-
-A **JavaScript function** that returns JSX.
-
-Example:
-
-```
-functionGreeting() {
-return<h1>Hello User</h1>;
-}
-```
-
-Arrow Function version:
-
-```
-constGreeting= () => {
-return<h1>Hello User</h1>;
-};
-```
-
-Characteristics:
-
-- Simple
-- Lightweight
-- Mostly used in modern React
-- Can use **Hooks (useState, useEffect)**
+Build a **Product Card Listing Page** using React that displays multiple products with details like image, name, category, price, and an **"Add To Cart"** button.
 
 ---
 
-### 2. Class Components
+## 🔗 Live Demo
 
-Older way of creating components using ES6 classes.
+https://task-1-react-nine.vercel.app/
 
-Example:
+---
 
+## 📌 Task Description
+
+Recreate the product card UI by observing the given live link carefully and building it from scratch using React.
+
+---
+
+## 🛠️ Tech Stack
+
+- React.js (with Vite)  
+- JavaScript (ES6+)  
+- HTML5 & CSS3  
+
+---
+
+## 🧠 Concepts Covered
+
+- **Components** → Reusable UI blocks  
+- **Props** → Passing data from parent to child  
+- **Props Drilling** → Data flow from App → ProductCard  
+- **JSX** → Writing UI inside JavaScript  
+- **CSS Styling** → External CSS for design  
+
+---
+
+## 🧩 Features
+
+- Centered heading **"Our Products"**  
+- 3 product cards displayed side-by-side  
+- Each card includes:
+  - Product Image  
+  - Product Name  
+  - Category  
+  - Price  
+  - "Add To Cart" button  
+
+---
+
+## 📂 Folder Structure
 ```
-importReact, {Component }from"react";
+src/
+│
+├── App.jsx
+├── main.jsx
+├── index.css
+│
+└── components/
+└── productCard/
+├── ProductCard.jsx
+└── ProductCard.css
+```
 
-classGreetingextendsComponent {
-  render() {
-return<h1>Hello User</h1>;
+
+---
+
+## 📦 Product Data (Example)
+
+```js
+const products = [
+  {
+    id: 1,
+    name: "Wireless Headphones",
+    price: "1999",
+    category: "Electronics",
+    image: "image-url"
+  },
+  {
+    id: 2,
+    name: "Smart Watch",
+    price: "2999",
+    category: "Gadgets",
+    image: "image-url"
+  },
+  {
+    id: 3,
+    name: "Running Shoes",
+    price: "2499",
+    category: "Fashion",
+    image: "image-url"
   }
-}
+];
 ```
 
-Characteristics:
+## 📤 Submission Guidelines
 
-- Uses lifecycle methods
-- More complex
-- Mostly replaced by functional components with hooks
+- Push code to **GitHub repository**  
+- Deploy on:
+  - Vercel  
+  - Netlify  
+  - GitHub Pages  
+
+### 📎 Submit
+- GitHub Repo Link  
+- Live Project Link  
 
 ---
 
-## Key Features of Components
+## 💡 Tips
 
-1. **Reusability**
-2. **Separation of Concerns**
-3. **Maintainability**
-4. **Better Code Organization**
-
----
-
-## Example Structure
-
-```
-App
- ├── Navbar
- ├── HeroSection
- ├── ProductList
- │     └── ProductCard
- └── Footer
-```
-
-Each part is a **separate component**.
+- Observe the UI carefully before coding  
+- Create **ProductCard component first**  
+- Use **flexbox** for horizontal alignment  
+- Add **hover effects** for better UI  
+- Keep code clean and structured  
 
 ---
+
+## 🎉 Outcome
+
+After completing this task, you will:
+
+- Understand component-based architecture  
+- Learn props & data flow  
+- Build responsive product UI  
+- Improve frontend structuring skills  
