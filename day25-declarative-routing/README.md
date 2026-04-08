@@ -1,12 +1,75 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## What is Routing in React?
 
-Currently, two official plugins are available:
+Routing is used to navigate between different components/pages in a React application without reloading the entire page.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It enables a Single Page Application (SPA) behavior where only the required component updates based on the URL.
 
-## Expanding the ESLint configuration
+## React Router (Re-introduction)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React Router is a library that helps in handling routing in React apps.
+
+Key Idea:
+URL changes to Component changes
+No full page reload to Faster experience
+
+## Declarative Routing (Core Concept)
+
+React Router follows a declarative approach, meaning you define routes using components instead of manual logic.
+
+Example Concept:
+```
+<BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/about" element={<About />} />
+  </Routes>
+</BrowserRouter>
+```
+
+You declare what UI should render for a path, React handles the rest.
+
+## BrowserRouter
+
+BrowserRouter is used to enable routing using the browser’s history API.
+
+Role:
+Wraps the entire app
+Tracks URL changes
+Controls navigation without page reload
+
+It acts as the routing provider for your application.
+
+## Dynamic Routing
+
+Dynamic routing allows you to create routes with variable parameters.
+
+Example:
+```
+<Route path="/product/:id" element={<Product />} />
+```
+
+:id is a dynamic value (changes based on URL)
+
+## useParams() Hook
+
+useParams() is used to access dynamic values from the URL.
+
+Example:
+```
+const { id } = useParams();
+```
+
+If URL is /product/101
+id = 101
+
+## Real Use Case (E-commerce)
+
+- /product/1: Product 1 details
+- /product/2: Product 2 details
+
+Same component, different data based on URL
+
+
+
+
