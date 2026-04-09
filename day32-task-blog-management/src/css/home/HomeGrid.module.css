@@ -1,0 +1,18 @@
+.mainGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .mainGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .mainGrid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

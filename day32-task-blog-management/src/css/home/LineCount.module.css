@@ -1,0 +1,17 @@
+.line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.head {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.subHead {
+    font-size: 1rem;
+    color: #555555;
+}
