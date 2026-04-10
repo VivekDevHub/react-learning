@@ -1,11 +1,12 @@
 import { createContext, useContext, useState } from "react";
 import { load } from "../utils/localStorage";
+import { withDefaultArticles } from "../utils/defaultArticles";
 
 const ArticleContext = createContext();
 
 export const ArticleProvider = ({ children }) => {
 
-    const [articles, setArticles] = useState(load("articles"));
+    const [articles, setArticles] = useState(() => withDefaultArticles(load("articles")));
 
     const items = {
         articles,

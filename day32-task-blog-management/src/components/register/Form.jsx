@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 import { ToastContainer, toast } from 'react-toastify';
 import { useAuth } from "../../context/AuthContext";
 import { save } from '../../utils/localStorage';
-import InputFeild from '../ui/InputField';
+import InputField from '../ui/InputField';
 
 const Form = () => {
 
@@ -55,10 +55,10 @@ const Form = () => {
         <div className={styles.box}>
             <FormHead head={"Create an Account"} subHead={'Join Inkwell to start reading or writing'} />
             <form onSubmit={handleSubmit(submiHandler)} className={styles.form}>
-                <InputFeild label={"name"} type={"text"} placeHolder={"John Doe"} error={errors?.name?.message} {...register("name", { required: "Name is required" })} />
-                <InputFeild label={"email"} type={"email"} placeHolder={"you@gmail.com"} error={errors?.email?.message} {...register("email", { required: "Email is required" })} />
-                <InputFeild label={"password"} type={"password"} placeHolder={"Enter Your password"} error={errors?.password?.message} {...register("password", { required: "Password is required" })} />
-                <InputFeild label={"Confirm Password"} type={"password"} placeHolder={"Confirm your Password"} error={errors?.confPas?.message} {...register("confPas", { required: "Confirm password is required" })} />
+                <InputField label={"name"} type={"text"} placeHolder={"John Doe"} error={errors?.name?.message} {...register("name", { required: "Name is required" })} />
+                <InputField label={"email"} type={"email"} placeHolder={"you@gmail.com"} error={errors?.email?.message} {...register("email", { required: "Email is required" })} />
+                <InputField label={"password"} type={"password"} placeHolder={"Enter Your password"} error={errors?.password?.message} {...register("password", { required: "Password is required" })} />
+                <InputField label={"Confirm Password"} type={"password"} placeHolder={"Confirm your Password"} error={errors?.confPas?.message} {...register("confPas", { required: "Confirm password is required" })} />
 
                 <div className={styles.inputBox}>
                     <label htmlFor="reader" className={`${styles.label} ${selectedType == "reader" ? styles.active : ""}`}>

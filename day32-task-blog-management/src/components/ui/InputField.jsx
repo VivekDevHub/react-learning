@@ -1,7 +1,7 @@
     import React from 'react';
-import styles from '../../css/ui/InputFeild.module.css';
+ import styles from '../../css/ui/InputField.module.css';
 
-const InputFeild = ({ label, type, placeHolder, error, add = "", ...rest }) => {
+const InputField = ({ label, type, placeHolder, error, add = "", ...rest }) => {
 
     let disPlayName = label.split("");
     disPlayName[0] = disPlayName[0].toUpperCase();
@@ -17,4 +17,4 @@ const InputFeild = ({ label, type, placeHolder, error, add = "", ...rest }) => {
     )
 }
 
-export default InputFeild
+export default InputField

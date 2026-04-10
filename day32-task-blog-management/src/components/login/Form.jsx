@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
 import { save } from "../../utils/localStorage";
-import InputFeild from "../ui/InputField";
+import InputField from "../ui/InputField";
 
 const Form = () => {
   const {
@@ -47,14 +47,14 @@ const Form = () => {
         subHead={"Sign in to your account to continue"}
       />
       <form onSubmit={handleSubmit(submiHandler)} className={styles.form}>
-        <InputFeild
+        <InputField
           label={"email"}
           type={"email"}
           placeHolder={"you@gmail.com"}
           error={errors?.email?.message}
           {...register("email", { required: "email is required" })}
         />
-        <InputFeild
+        <InputField
           label={"password"}
           type={"password"}
           placeHolder={"Enter Your password"}

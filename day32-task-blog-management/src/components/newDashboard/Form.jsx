@@ -1,20 +1,24 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../css/newDashboard/Form.module.css';
 import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
+import InputField from '../ui/InputField';
 import InputText from '../ui/InputText';
 import { useArticles } from '../../context/ArticleContext';
 import { useAuth } from '../../context/AuthContext';
 import { nanoid } from 'nanoid';
 import { save } from '../../utils/localStorage';
-import InputFeild from '../ui/InputField';
 
 const Form = ({ article }) => {
 
     const navigate = useNavigate();
-    const { register, handleSubmit, formState: { errors }, setValue } = useForm();
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm({
+        defaultValues: {
+            tags: []
+        }
+    });
     const { setArticles, articles } = useArticles();
-    const [tags, setTags] = useState([]);
+    const [tags, setTags] = useState(() => Array.isArray(article?.tags) ? article.tags : []);
     const { user } = useAuth();
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
@@ -34,14 +38,14 @@ const Form = ({ article }) => {
     }
 
     useEffect(() => {
-        if (article) {
-            setValue("title", article.title);
-            setValue("desc", article.desc);
-            setValue("content", article.content);
-            setValue("tags", article.tags);
-            setTags(article.tags);
-        }
-    }, [])
+        if (!article) return;
+
+        const articleTags = Array.isArray(article.tags) ? article.tags : [];
+        setValue("title", article.title || "");
+        setValue("desc", article.desc || "");
+        setValue("content", article.content || "");
+        setValue("tags", articleTags);
+    }, [article, setValue])
 
     const removeEle = (idx) => {
         const updated = tags.filter((_, i) => i != idx);
@@ -71,39 +75,30 @@ const Form = ({ article }) => {
 
         if (article) {
             const updatedArticle = {
-                ...date,
                 ...article,
-                type: e?.navtiveEvent?.submitter?.name == "save" ? "draft" : "publish",
+                ...data,
+                type: e?.nativeEvent?.submitter?.name == "save" ? "draft" : "publish",
                 date: todayDate()
             }
-            if (e?.navtiveEvent?.submitter?.name == "save") {
-                const updatedArray = articles.map((a) => {
-                    a.id == article.id ? updatedArticle : a
-                })
-                setArticles(updatedArray);
-            } else {
-                const updatedArray = articles.map((a) => {
-                    a.id == article.id ? updatedArticle : a
-                })
-                setArticles(updatedArray);
-                
-                // setArticles(prev => prev.map((a) => {
-                //     a.id == article.id ? updatedArticle : a
-                // }));
-                // setArticles(prev => [...prev, { ...data, ...article, type: "publish", date: todayDate() }]);
-            }
+            const updatedArray = articles.map((a) => (
+                a.id == article.id ? updatedArticle : a
+            ));
+            setArticles(updatedArray);
+            save("articles", updatedArray);
 
             navigate("/dashboard");
             return;
         }
 
 
-        if (e?.navtiveEvent?.submitter?.name == "save") {
-            setArticles(prev => [...prev, { ...data, type: "draft", date: todayDate(), author: user.name, email: user.email, id: nanoid() }]);
-            save('articles', [...articles, { ...data, type: "draft", date: todayDate(), author: user.name, email: user.email, id: nanoid() }])
+        if (e?.nativeEvent?.submitter?.name == "save") {
+            const articleData = { ...data, type: "draft", date: todayDate(), author: user.name, email: user.email, id: nanoid() };
+            setArticles(prev => [...prev, articleData]);
+            save('articles', [...articles, articleData])
         } else {
-            setArticles(prev => [...prev, { ...data, type: "publish", date: todayDate(), author: user.name, email: user.email, id: nanoid() }]);
-            save('articles', [...articles, { ...data, type: "publish", date: todayDate(), author: user.name, email: user.email, id: nanoid() }])
+            const articleData = { ...data, type: "publish", date: todayDate(), author: user.name, email: user.email, id: nanoid() };
+            setArticles(prev => [...prev, articleData]);
+            save('articles', [...articles, articleData])
         }
         navigate("/dashboard");
     }
@@ -112,8 +107,8 @@ const Form = ({ article }) => {
         <>
             <p onClick={() => navigate("/dashboard")} className={styles.back}><i className="ri-arrow-left-long-line"></i> Back to Dashboard</p>
             <form className={styles.form} onSubmit={handleSubmit(submitHandler)}>
-                <h4 className={styles.head}>Create new Article</h4>
-                <InputFeild label={"title"} placeHolder={'Enter a Compelling title...'} type={"text"} error={errors?.title?.message} {...register("title", { required: "Title is required" })} />
+                <h4 className={styles.head}>{article ? "Edit Article" : "Create new Article"}</h4>
+                <InputField label={"title"} placeHolder={'Enter a Compelling title...'} type={"text"} error={errors?.title?.message} {...register("title", { required: "Title is required" })} />
                 <InputText label={"excerpt"} placeHolder={"Write a breif summary of your article..."} error={errors?.desc?.message} add='A short description that appears on the blog listing' {...register("desc", { required: "Excerpt is required" })} />
                 <InputText label={"content"} placeHolder={"Write your article content here... (Markdown Supported)"} error={errors?.content?.message} add='Supports Markdown: ## for headers, **bold**, *italic*, `code`, etc.' {...register("content", { required: "Excerpt is required" })} />
                 <div className={styles.inputBox}>

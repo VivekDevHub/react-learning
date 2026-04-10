@@ -1,13 +1,16 @@
 import React from 'react';
 import styles from '../../css/ui/Card.module.css';
+import { useNavigate } from 'react-router';
 
 const Card = ({ article }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={() => navigate(`/blog/${article.id}`)}>
       <div className={styles.top}>
         <div className={styles.tags}>
           {
-            article.tags.map((elem, idx) => {
+            (article.tags || []).map((elem, idx) => {
               return (
                 <span key={idx} className={styles.tag}> {elem} </span>
               )
@@ -24,7 +27,7 @@ const Card = ({ article }) => {
       <div className={styles.mid}>
         <div className={styles.para}>
           {
-            article.description
+            article.desc || article.description
           }
         </div>
       </div>

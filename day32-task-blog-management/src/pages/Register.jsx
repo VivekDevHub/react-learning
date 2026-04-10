@@ -1,7 +1,7 @@
 import React from 'react'
 import Form from '../components/register/Form'
 
-const Rgister = () => {
+const Register = () => {
   return (
     <div style={{width: "100%", height: "90vh", display: 'flex', justifyContent: "center", alignItems: "center"}} className='page'>
       <Form />
@@ -9,4 +9,4 @@ const Rgister = () => {
   )
 }
 
-export default Rgister
+export default Register
