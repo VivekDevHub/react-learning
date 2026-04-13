@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.input {
+  @apply px-3 py-2 border rounded-lg outline-none text-sm;
+}
+
+.btn-primary {
+  @apply flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg;
+}
+
+.btn-light {
+  @apply flex items-center gap-2 bg-blue-100 text-blue-600 px-4 py-2 rounded-lg;
+}
+
+.page-btn {
+  @apply px-3 py-1 border rounded-md hover:bg-gray-100;
+}
