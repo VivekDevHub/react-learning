@@ -3,6 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addUser } from "../features/authSlice";
+import { loginUser } from "../features/actions/authAction";
 
 const Login = ({ setToggle }) => {
   let dispatch = useDispatch();
@@ -15,10 +16,7 @@ const Login = ({ setToggle }) => {
 
   const onSubmit = async (data) => {
     try {
-      let res = await axios.post("https://dummyjson.com/auth/login", data);
-      console.log(res);
-      dispatch(addUser(res.data));
-      localStorage.setItem("accessToken", res.data.token);
+      dispatch(loginUser(data));
     } catch (error) {
       console.log("error in login api", error);
     }
