@@ -6,21 +6,18 @@ import HomePage from "../pages/HomePage";
 import PublicRoute from "./PublicRoute";
 import ProtectedRoute from "./ProtectedRoute";
 import { useDispatch } from "react-redux";
-import { addUser } from "../features/authSlice";
+import { removeUser } from "../features/authSlice";
 import axios from "axios";
+import { loginUser } from "../features/actions/authAction";
 
 const AppRoutes = () => {
   let dispatch = useDispatch();
   let token = localStorage.getItem("accessToken");
-console.log(token,'popopopopop=-=-=-=-=-');
 
   useEffect(() => {
-if (!token || token === "undefined") {
-  return; // API call मत करो
-}
-    // if (token) {
-    //     dispatch(addUser())
-    // }
+    if (!token) {
+      dispatch(removeUser());
+    }
 
     (async () => {
       try {
@@ -30,7 +27,7 @@ if (!token || token === "undefined") {
           },
         });
         console.log("loggedin user", res);
-        dispatch(addUser(res.data));
+        dispatch(loginUser(res.data));
       } catch (error) {
         console.log("Error in me api", error);
       }
@@ -54,7 +51,7 @@ if (!token || token === "undefined") {
       children: [
         {
           path: "",
-          element: <MainLayout />,
+          elementL: <MainLayout />,
           children: [
             {
               path: "",
