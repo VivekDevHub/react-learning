@@ -19,19 +19,19 @@ const AppRoutes = () => {
       dispatch(removeUser());
     }
 
-    (async () => {
-      try {
-        let res = await axios.get("https://dummyjson.com/auth/me", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        console.log("loggedin user", res);
-        dispatch(loginUser(res.data));
-      } catch (error) {
-        console.log("Error in me api", error);
-      }
-    })();
+    // (async () => {
+    //   try {
+    //     let res = await axios.get("https://dummyjson.com/auth/me", {
+    //       headers: {
+    //         Authorization: `Bearer ${token}`,
+    //       },
+    //     });
+    //     console.log("loggedin user", res);
+    //     dispatch(loginUser(res.data));
+    //   } catch (error) {
+    //     console.log("Error in me api", error);
+    //   }
+    // })();
   }, []);
 
   let router = createBrowserRouter([
