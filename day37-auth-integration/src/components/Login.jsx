@@ -45,7 +45,7 @@ const Login = ({ setToggle }) => {
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">
-                {errors.username.message}
+                {errors.email.message}
               </p>
             )}
           </div>
