@@ -10,7 +10,8 @@ export let loginUser = createAsyncThunk(
         credentials
       );
       localStorage.setItem("accessToken", res.data.accessToken);
-      return res;
+      // return res;
+      return res
     } catch (error) {
       return thunkAPI.rejectWithValue("login failed");
     }
