@@ -1,0 +1,73 @@
+.button {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.button:hover {
+  transform: scale(1.02);
+}
+
+.button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.primary {
+  background-color: #1ed760;
+  color: #000000;
+}
+
+.social {
+  background-color: transparent;
+  border-color: #727272;
+  color: #ffffff;
+}
+
+.social:hover {
+  border-color: #ffffff;
+}
+
+.link {
+  border: none;
+  background: transparent;
+  min-height: auto;
+  width: auto;
+  padding: 0;
+  border-radius: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.link:hover {
+  transform: none;
+  color: #1ed760;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+}

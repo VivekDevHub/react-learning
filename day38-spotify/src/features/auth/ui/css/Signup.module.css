@@ -1,0 +1,92 @@
+.page {
+  min-height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 72px 16px 28px;
+  font-family: CircularSp, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-size: clamp(1.9rem, 3.6vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 28px;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login {
+  margin-top: 34px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.loginCopy {
+  margin: 0;
+  color: #b3b3b3;
+  font-size: 1.05rem;
+}
+
+.loginLink {
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.loginLink:hover {
+  color: #1ed760;
+}
+
+@media (max-width: 520px) {
+  .page {
+    align-items: center;
+    padding: 30px 14px 20px;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 1.7rem;
+    margin-bottom: 22px;
+  }
+
+  .login {
+    margin-top: 30px;
+  }
+
+  .loginLink {
+    font-size: 1.15rem;
+  }
+}
