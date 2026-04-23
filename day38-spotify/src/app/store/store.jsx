@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import playerReducer from "../../features/player/state/playerSlice";
-import errorReducer from "../../shared/state/errorSlice";
+import errorReducer from "../../shared/state/ErrorReducer/slicers/ErrorSlice.jsx";
+import userReducer from "../../features/auth/state/UserReducer/slicers/UserSlice.jsx";
+import songsReducer from "../../features/home/state/SongsReducer/slicers/SongsSlice.jsx";
 
-export let store = configureStore({
+const store = configureStore({
   reducer: {
-    player: playerReducer,
-    error: errorReducer,
+    errorReducer: errorReducer,
+    userReducer: userReducer,
+    songsReducer: songsReducer,
   },
 });
 
-export let dispatch = store.dispatch;
+export default store;
