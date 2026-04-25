@@ -81,4 +81,3 @@ Detect when all data has been loaded
 Interview-Ready Summary
 
 Lazy data fetching is a strategy where data is loaded incrementally instead of all at once. It typically uses pagination and scroll detection to trigger additional API calls when the user reaches the end of the current content. The new data is then appended to the existing dataset, improving both performance and user experience.
-Displaying Day 72 Notes.md.
