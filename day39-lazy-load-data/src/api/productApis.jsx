@@ -5,7 +5,7 @@ export let fetchProducts = async ({ pageParam = 1 }) => {
     let limit = 20;
     let skip = (pageParam - 1) * limit;
     let res = await axios.get(
-      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
+      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`,
     );
     return res.data;
   } catch (error) {
