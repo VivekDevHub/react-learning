@@ -1,12 +1,100 @@
-# React + Vite
+# **Props Drilling**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### **What is Props Drilling?**
 
-Currently, two official plugins are available:
+Props Drilling is the process of passing data from a parent component to a deeply nested child component through multiple intermediate components, even if those intermediate components do not need the data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+### **Example (Problem Scenario)**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+<App>
+<Parentuser={user}>
+<Childuser={user}>
+<GrandChilduser={user}/>
+</Child>
+</Parent>
+</App>
+```
+
+Here, `Parent` and `Child` are just forwarding props without using them.
+
+---
+
+### **Why Props Drilling is a Problem**
+
+- Makes code **messy and harder to maintain**
+- Creates **unnecessary dependencies** between components
+- Reduces **reusability**
+- Difficult to scale in large applications
+
+---
+
+### **When It’s Okay**
+
+- Small applications
+- Shallow component tree (2–3 levels)
+- Limited data passing
+
+---
+
+# **Context API**
+
+### **What is Context API?**
+
+Context API is a built-in React feature that allows you to share data globally across components without manually passing props at every level.
+
+---
+
+### **Core Idea**
+
+Instead of passing props step-by-step, you create a **central data store (context)** and access it directly wherever needed.
+
+---
+
+### **Basic Flow**
+
+### **1. Create Context**
+
+```
+constUserContext=React.createContext();
+```
+
+### **2. Provide Context**
+
+```
+<UserContext.Providervalue={user}>
+<App/>
+</UserContext.Provider>
+```
+
+### **3. Consume Context**
+
+```
+constuser=useContext(UserContext);
+```
+
+---
+
+### **Key Components**
+
+- `createContext()` → creates context
+- `Provider` → supplies data
+- `useContext()` → consumes data
+
+---
+
+### **Advantages**
+
+- Eliminates **props drilling**
+- Makes code **cleaner and scalable**
+- Easy access to **global data** (user, theme, auth, etc.)
+
+---
+
+### **Limitations**
+
+- Can cause **unnecessary re-renders** if not optimized
+- Not ideal for **very complex state management** (Redux/Zustand better)
+Displaying Day 51 notes.md.
