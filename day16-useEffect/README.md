@@ -1,12 +1,282 @@
-# React + Vite
+ # React Hooks
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. useEffect Hook
 
-Currently, two official plugins are available:
+### Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Used to handle side effects in React:
 
-## Expanding the ESLint configuration
+- API calls
+- DOM updates
+- Timers
+- Subscriptions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Basic Syntax
+
+```javascript
+useEffect(() => {
+  // side effect code
+
+  return () => {
+    // cleanup function (optional)
+  };
+}, [dependencies]);
+```
+
+## 2. Dependency Array
+
+### What it does:
+
+Controls when the effect runs
+
+### Cases:
+
+#### No dependency array
+
+```javascript
+useEffect(() => {
+  console.log("Runs on every render");
+});
+```
+
+#### Empty dependency array []
+
+```javascript
+useEffect(() => {
+  console.log("Runs only once (on mount)");
+}, []);
+```
+
+#### With dependencies
+
+```javascript
+useEffect(() => {
+  console.log("Runs when count changes");
+}, [count]);
+```
+
+Runs only when dependency value changes
+
+## 3. Cleanup Function
+ Why needed:
+Prevent memory leaks
+Remove listeners / cancel API calls / clear timers
+ Syntax:
+
+```javascript
+useEffect(() => {
+  const interval = setInterval(() => {
+    console.log("Running...");
+  }, 1000);
+
+  return () => {
+    clearInterval(interval);
+  };
+}, []);
+```
+
+Runs:
+
+- Before component unmount
+- Before next effect execution
+
+## 4. API Call using axios in useEffect
+
+### Example:
+
+```javascript
+import axios from "axios";
+import { useState, useEffect } from "react";
+
+function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://api.example.com/data")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
+  return <div>{JSON.stringify(data)}</div>;
+}
+```
+
+### Key Points:
+
+- API call should be done inside useEffect
+- Use empty dependency array [] → run once on mount
+- Store response in state
+
+## 5. useLayoutEffect Hook
+
+### Purpose:
+
+Similar to useEffect, but runs before browser paints (DOM update phase)
+
+### Important Difference
+
+| Hook | Execution Timing |
+|------|------------------|
+| useEffect | Async (after paint) |
+| useLayoutEffect | Sync (before paint) |
+
+### Syntax:
+useLayoutEffect(() => {
+  // runs synchronously before painting
+}, []);
+
+
+
+
+
+Basic Syntax
+
+useEffect(() => {
+  // side effect code
+
+  return () => {
+    // cleanup function (optional)
+  };
+}, [dependencies]);
+
+
+2. Dependency Array
+
+What it does:
+
+Controls when the effect runs
+
+
+Cases:
+
+
+
+No dependency array
+
+
+useEffect(() => {
+  console.log("Runs on every render");
+});
+
+
+
+Empty dependency array []
+
+
+useEffect(() => {
+  console.log("Runs only once (on mount)");
+}, []);
+
+
+
+With dependencies
+
+
+useEffect(() => {
+  console.log("Runs when count changes");
+}, [count]);
+
+Runs only when dependency value changes
+
+
+
+3. Cleanup Function
+
+Why needed:
+
+
+
+Prevent memory leaks
+
+
+Remove listeners / cancel API calls / clear timers
+
+
+Syntax:
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    console.log("Running...");
+  }, 1000);
+
+  return () => {
+    clearInterval(interval);
+  };
+}, []);
+
+Runs:
+
+
+
+
+Before component unmount
+
+
+Before next effect execution
+
+
+
+4. API Call using axios in useEffect
+
+Example:
+
+import axios from "axios";
+import { useState, useEffect } from "react";
+
+function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://api.example.com/data")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
+  return <div>{JSON.stringify(data)}</div>;
+}
+
+Key Points:
+
+
+
+API call should be done inside useEffect
+
+
+Use empty dependency array [] → run once on mount
+
+
+Store response in state
+
+
+
+5. useLayoutEffect Hook
+
+ Purpose:
+
+
+
+Similar to useEffect, but runs before browser paints (DOM update phase)
+
+
+
+ Important Difference
+
+Hook	Execution Timing
+useEffect	Async (after paint)
+useLayoutEffect	Sync (before paint)
+
+
+ Syntax:
+
+useLayoutEffect(() => {
+  // runs synchronously before painting
+}, []);
+Displaying Day 49.md.
